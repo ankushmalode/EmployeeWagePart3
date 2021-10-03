@@ -9,27 +9,40 @@ public class EmployeeWage {
         /*
         calculating wage for a month
          */
-        for (int i = 0; i < dayPerMonth; i++) {
-            Random num = new Random();
-            int Attendance = num.nextInt(3);
+        int i=0;
+     for (i=1;i<=dayPerMonth && totalHr<100;i++){
+         Random num = new Random();
+         int Attendance = num.nextInt(3);
         /*Checking employee is
         present or absent
          */
-            switch (Attendance) {
-                case 1:
+         if (totalHr<=100){
+             switch (Attendance) {
+                 case 1:
 //                    System.out.print("Employee is Present");
-                    totalHr += fullDayHr;
-                    break;
-                case 2:
+                     totalHr += fullDayHr;
+                     if (totalHr>100)
+                         totalHr-=fullDayHr;
+                     break;
+                 case 2:
 //                    System.out.print("Employee is Present but only half-day");
-                    totalHr += partTimeHr;
-                    break;
-                default:
+                     totalHr += partTimeHr;
+                     if (totalHr>100)
+                         totalHr-=partTimeHr;
+                     break;
+                 default:
 //                    System.out.print("Employee is Absent");
-                    totalHr += 0;
-                    break;
-            }
-        }
-        System.out.println("\nMonthly Employee Wage is: " + totalHr);
-    }
+                     totalHr += 0;
+//                 dayPerMonth++;
+                     i--;
+                     break;
+             }
+             System.out.println(i);
+//         System.out.println(dayPerMonth);
+             System.out.println("\nMonthly Employee Wage is: " + totalHr);
+         }
+         else
+             break;
+     }
+     }
 }
