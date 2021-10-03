@@ -5,9 +5,9 @@ import java.util.*;
 public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
-        int totalHr=0, wagePerHr=20, fullDayHr=8;
+        int totalHr=0, wagePerHr=20, fullDayHr=8, partTimeHr=4;
         Random num = new Random();
-        int Attendance = num.nextInt(2);
+        int Attendance = num.nextInt(3);
         /*Checking employee is
         present or absent
          */
@@ -15,6 +15,10 @@ public class EmployeeWage {
             case 1:
                 System.out.print("Employee is Present");
                 totalHr += fullDayHr;
+                break;
+            case 2:
+                System.out.print("Employee is Present but only half-day");
+                totalHr+=partTimeHr;
                 break;
             default:
                 System.out.print("Employee is Absent");
