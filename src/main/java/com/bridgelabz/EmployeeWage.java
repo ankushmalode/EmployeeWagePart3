@@ -5,7 +5,7 @@ import java.util.*;
 public class EmployeeWage {
     public static void main(String[] args) {
         System.out.println("Welcome to Employee Wage Computation Program");
-        int TotalHr=0,FullDayHr=1;
+        int totalHr=0, wagePerHr=20, fullDayHr=8;
         Random num = new Random();
         int Attendance = num.nextInt(2);
         /*Checking employee is
@@ -13,10 +13,14 @@ public class EmployeeWage {
          */
         switch (Attendance) {
             case 1:
-                System.out.println("Employee is Present");
+                System.out.print("Employee is Present");
+                totalHr += fullDayHr;
                 break;
             default:
-                System.out.println("Employee is Absent");
+                System.out.print("Employee is Absent");
+                totalHr += 0;
+                break;
         }
+        System.out.println("\nDaily Employee Wage is: " + totalHr);
     }
 }
